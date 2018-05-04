@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="设置文本" Height="150" Width="400">
     <StackPanel>
-        <TextBox Name="TbText"></TextBox>
+        <RichTextBox Name="TbText" Height="80"></RichTextBox>
         <Button IsCancel="True" IsDefault="True" Click="OkClick">确定</Button>
         <Button IsCancel="True">取消</Button>
     </StackPanel>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,14 @@ namespace NoteBackground.UIs
 
         private void OkClick(object sender, RoutedEventArgs e)
         {
-            NoteText = this.TbText.Text;
+            NoteText = GetTextByRichBox(TbText);
             this.DialogResult = true;
+        }
+
+        string GetTextByRichBox(RichTextBox box)
+        {
+            TextRange documentTextRange = new TextRange(box.Document.ContentStart, box.Document.ContentEnd);
+            return documentTextRange.Text;
         }
     }
 }
