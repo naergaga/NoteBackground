@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindowDataContext.cs" />
     <Compile Include="Models\Enum\BackStyle.cs" />
+    <Compile Include="ObservableObject.cs" />
     <Compile Include="Services\ImageDraw.cs" />
     <Compile Include="UIs\SetTextDialog.xaml.cs">
       <DependentUpon>SetTextDialog.xaml</DependentUpon>
@@ -79,7 +81,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

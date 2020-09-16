@@ -17,13 +17,13 @@ namespace NoteBackground.Services
 
         public static Font font = new Font(FontFamily.GenericSansSerif, 24);
 
-        public void Draw(Bitmap bitmap,PointF point,string text)
+        public void Draw(Bitmap bitmap,RectangleF rectangle,string text)
         {
             var w = bitmap.Width;
             var h = bitmap.Height;
 
             var g = Graphics.FromImage(bitmap);
-            g.DrawString(text, font, Brushes.Red,point);
+            g.DrawString(text, font, Brushes.Red, rectangle);
            
             g.Flush();
         }

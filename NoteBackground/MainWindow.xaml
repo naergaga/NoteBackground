@@ -5,22 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NoteBackground"
         mc:Ignorable="d"
-        Title="MainWindow" Name="Main" Height="450" Width="800">
+        Title="NoteBackground" Name="Main" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowDataContext/>
+    </Window.DataContext>
     <DockPanel>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Name="BtnOpenPic" Click="BtnOpenPic_Click">打开图片</Button>
                 <Button Name="BtnSetText" Click="BtnSetText_Click">设置文字</Button>
                 <Label>X:</Label>
-                <TextBox Width="30" Name="TbPosX">0</TextBox>
+                <TextBox Width="30" Text="{Binding X,Mode=Default}" DataContext="{Binding Point}"/>
                 <Label>Y:</Label>
-                <TextBox Width="30" Name="TbPosY">0</TextBox>
-                <ComboBox SelectedValue="{Binding Path=Style1,ElementName=Main,Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding ElementName=Main,Path=StyleArr}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding}"></TextBlock>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
+                <TextBox Width="30" Text="{Binding Y}" DataContext="{Binding Point}"/>
+                <Label>W:</Label>
+                <TextBox Width="30" Text="{Binding Width}" DataContext="{Binding Size}"/>
+                <Label>H:</Label>
+                <TextBox Width="30" Text="{Binding Height}" DataContext="{Binding Size}"/>
+                <ComboBox SelectedValue="{Binding Style}" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding Styles}">
                 </ComboBox>
                 <Button Name="BtnViewBack" Click="BtnViewBack_Click">预览背景</Button>
                 <Button Name="BtnSetBack" Click="BtnSetBack_Click">设置背景</Button>
